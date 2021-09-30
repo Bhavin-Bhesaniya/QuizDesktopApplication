@@ -18,13 +18,13 @@ public class OtpConfirm extends javax.swing.JFrame {
         receivemail = to;
         name = uname;
         password = passwd;
-        ImageIcon ao = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon ao = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(ao);
     }
 
     public OtpConfirm() {
         initComponents();
-        ImageIcon ao = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon ao = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(ao);
     }
 
@@ -260,12 +260,12 @@ public class OtpConfirm extends javax.swing.JFrame {
     }//GEN-LAST:event_BackPanelMouseExited
 
     private void ExitLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseEntered
-        ImageIcon exit1 = new ImageIcon("src/main/java/img/exit1.png");
+        ImageIcon exit1 = new ImageIcon("src/main/java/img/CloseBlackImg.png");
         ExitLabel.setIcon(exit1);
     }//GEN-LAST:event_ExitLabelMouseEntered
 
     private void ExitLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseExited
-        ImageIcon exit2 = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(exit2);
     }//GEN-LAST:event_ExitLabelMouseExited
 

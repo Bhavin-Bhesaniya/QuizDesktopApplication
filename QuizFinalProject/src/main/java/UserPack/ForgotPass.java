@@ -21,9 +21,9 @@ public class ForgotPass extends javax.swing.JFrame {
         OtpConfirmBtn.setEnabled(false);
         CoPasswordField.setEditable(false);
         LoginBtn.setEnabled(false);
-        ImageIcon passeye = new ImageIcon("src/main/java/img/eye.png");
+        ImageIcon passeye = new ImageIcon("src/main/java/img/PasswordEyeImg.png");
         PassEye.setIcon(passeye);
-        ImageIcon passeye1 = new ImageIcon("src/main/java/img/eye.png");
+        ImageIcon passeye1 = new ImageIcon("src/main/java/img/PasswordEyeImg.png");
         PassEye1.setIcon(passeye1);
     }
 

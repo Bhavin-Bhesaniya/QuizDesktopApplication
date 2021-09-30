@@ -3,8 +3,7 @@ package UserPack;
 public class StartProject extends javax.swing.JFrame {
     public StartProject() {
         initComponents();
-        Thread t;
-        t = new Thread(new Runnable() {
+        Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i <= 100; i++) {

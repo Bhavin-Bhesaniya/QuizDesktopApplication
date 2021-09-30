@@ -1,22 +1,20 @@
 package AdminPanel;
 
-import Database.DatabaseConnection;
 import java.awt.Color;
-import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 
 public class AdminHome extends javax.swing.JFrame {
 
     public AdminHome() throws ClassNotFoundException {
         initComponents();
-        ImageIcon ap = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(ap);
-        ImageIcon ao = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon ao = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ao);
     }
 
@@ -267,12 +265,12 @@ public class AdminHome extends javax.swing.JFrame {
     }//GEN-LAST:event_MinimizeLabelMouseClicked
 
     private void MinimizeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseEntered
-        ImageIcon ap = new ImageIcon("src/main/java/img/des1.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeBlackImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseEntered
 
     private void MinimizeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseExited
-        ImageIcon ap = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseExited
 
@@ -284,12 +282,12 @@ public class AdminHome extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitLabelMouseClicked
 
     private void ExitLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseEntered
-        ImageIcon exit1 = new ImageIcon("src/main/java/img/exit1.png");
+        ImageIcon exit1 = new ImageIcon("src/main/java/img/CloseBlackImg.png");
         ExitLabel.setIcon(exit1);
     }//GEN-LAST:event_ExitLabelMouseEntered
 
     private void ExitLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseExited
-        ImageIcon exit2 = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(exit2);
     }//GEN-LAST:event_ExitLabelMouseExited
     public static void main(String args[]) {

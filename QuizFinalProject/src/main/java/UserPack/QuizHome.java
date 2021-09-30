@@ -10,9 +10,8 @@ public class QuizHome extends javax.swing.JFrame {
     public QuizHome(int userid) {
         userId = userid;
         initComponents();
-        ImageIcon p = new ImageIcon("src/main/java/img/groicon.png");
-        TitleIcon.setIcon(p);
-//        
+        ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
+        TitleIcon.setIcon(p);   
     }
 
     @SuppressWarnings("unchecked")

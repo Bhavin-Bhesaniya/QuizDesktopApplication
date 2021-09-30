@@ -11,9 +11,9 @@ public class HomePage extends javax.swing.JFrame {
 
     public HomePage() {
         initComponents();
-        ImageIcon ap = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(ap);
-        ImageIcon ao = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon ao = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ao);
         ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
         LogoLabel.setIcon(p);
@@ -23,6 +23,17 @@ public class HomePage extends javax.swing.JFrame {
         youtubeLink.setIcon(yt);
         ImageIcon linkdinIc = new ImageIcon("src/main/java/img/linkedin.png");
         linkdinLink.setIcon(linkdinIc);
+        ImageIcon GithubIc = new ImageIcon("src/main/java/img/linkedin.png");
+        GithubLink.setIcon(GithubIc);
+        ImageIcon instaIcM = new ImageIcon("src/main/java/img/instagram.png");
+        InstagramLinkMayur.setIcon(instaIcM);
+        ImageIcon ytM = new ImageIcon("src/main/java/img/youtube.png");
+        youtubeLinkMayur.setIcon(ytM);
+        ImageIcon linkdinIcM = new ImageIcon("src/main/java/img/linkedin.png");
+        LinkdinlinkMayur.setIcon(linkdinIcM);
+        ImageIcon GithubIcM = new ImageIcon("src/main/java/img/linkedin.png");
+        GithubLinkMayur.setIcon(GithubIcM);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -64,7 +75,7 @@ public class HomePage extends javax.swing.JFrame {
         linkdinLink = new javax.swing.JLabel();
         youtubeLinkMayur = new javax.swing.JLabel();
         LinkdinlinkMayur = new javax.swing.JLabel();
-        instagramLinkMayur = new javax.swing.JLabel();
+        InstagramLinkMayur = new javax.swing.JLabel();
         FollowMayurLb = new javax.swing.JLabel();
         GithubLink = new javax.swing.JLabel();
         GithubLinkMayur = new javax.swing.JLabel();
@@ -400,12 +411,12 @@ public class HomePage extends javax.swing.JFrame {
         });
         BodyAboutUs.add(LinkdinlinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 30, 30));
 
-        instagramLinkMayur.addMouseListener(new java.awt.event.MouseAdapter() {
+        InstagramLinkMayur.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                instagramLinkMayurMouseClicked(evt);
+                InstagramLinkMayurMouseClicked(evt);
             }
         });
-        BodyAboutUs.add(instagramLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 30, 30));
+        BodyAboutUs.add(InstagramLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 30, 30));
 
         FollowMayurLb.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         FollowMayurLb.setForeground(new java.awt.Color(255, 255, 255));
@@ -533,12 +544,12 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitLabelMouseClicked
 
     private void ExitLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseEntered
-        ImageIcon exit1 = new ImageIcon("src/main/java/img/exit1.png");
+        ImageIcon exit1 = new ImageIcon("src/main/java/img/CloseBlackImg.png");
         ExitLabel.setIcon(exit1);
     }//GEN-LAST:event_ExitLabelMouseEntered
 
     private void ExitLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseExited
-        ImageIcon exit2 = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(exit2);
     }//GEN-LAST:event_ExitLabelMouseExited
 
@@ -547,12 +558,12 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_MinimizeLabelMouseClicked
 
     private void MinimizeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseEntered
-        ImageIcon ap = new ImageIcon("src/main/java/img/des1.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeBlackImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseEntered
 
     private void MinimizeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseExited
-        ImageIcon ap = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseExited
 
@@ -592,13 +603,13 @@ public class HomePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LinkdinlinkMayurMouseClicked
 
-    private void instagramLinkMayurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_instagramLinkMayurMouseClicked
+    private void InstagramLinkMayurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InstagramLinkMayurMouseClicked
         try {
             Desktop.getDesktop().browse(new URI("https://www.instagram.com/gujju_coding/"));
         } catch (IOException | URISyntaxException ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_instagramLinkMayurMouseClicked
+    }//GEN-LAST:event_InstagramLinkMayurMouseClicked
 
     private void GithubLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GithubLinkMouseClicked
         try {
@@ -639,6 +650,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel HomeLabel;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel InstagramLink;
+    private javax.swing.JLabel InstagramLinkMayur;
     private javax.swing.JLabel LinkdinlinkMayur;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JLabel LogoLabel;
@@ -649,7 +661,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel SignUpPanel;
     private javax.swing.JPanel StartPanel;
     private javax.swing.JLabel TitleLabel;
-    private javax.swing.JLabel instagramLinkMayur;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

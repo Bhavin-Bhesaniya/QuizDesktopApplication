@@ -11,19 +11,21 @@ public class LoginPage extends javax.swing.JFrame {
 
     public LoginPage() {
         initComponents();
-        ImageIcon ab = new ImageIcon("src/main/java/img/contact.png");
+        ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
+        LogoLabel.setIcon(p);
+        ImageIcon ab = new ImageIcon("src/main/java/img/ContactUsImg.png");
         ContactIconLabel.setIcon(ab);
-        ImageIcon a = new ImageIcon("src/main/java/img/pass.png");
+        ImageIcon a = new ImageIcon("src/main/java/img/PasswordLockWhiteImg.png");
         PasswrodIconLabel.setIcon(a);
-        ImageIcon passeye = new ImageIcon("src/main/java/img/eye.png");
+        ImageIcon passeye = new ImageIcon("src/main/java/img/PasswordEyeImg.png");
         PassEyeLabel.setIcon(passeye);
-        ImageIcon ear = new ImageIcon("src/main/java/img/earthlogin.png");
+        ImageIcon ear = new ImageIcon("src/main/java/img/EarthBlackImg.png");
         EarthIconLabel.setIcon(ear);
         ImageIcon e = new ImageIcon("src/main/java/img/HomeSmallIcon1.png");
         BackHomeLabel.setIcon(e);
-        ImageIcon exitlogp = new ImageIcon("src/main/java/img/exit3.png");
+        ImageIcon exitlogp = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(exitlogp);
-        ImageIcon minip = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon minip = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(minip);
     }
 
@@ -54,6 +56,7 @@ public class LoginPage extends javax.swing.JFrame {
         LeftSidePanel = new javax.swing.JPanel();
         EarthIconLabel = new javax.swing.JLabel();
         TitleLabel = new javax.swing.JLabel();
+        LogoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(350, 150));
@@ -277,22 +280,30 @@ public class LoginPage extends javax.swing.JFrame {
         LeftSidePanelLayout.setHorizontalGroup(
             LeftSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftSidePanelLayout.createSequentialGroup()
-                .addGap(0, 122, Short.MAX_VALUE)
-                .addComponent(EarthIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128))
-            .addGroup(LeftSidePanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(TitleLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(LeftSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(LeftSidePanelLayout.createSequentialGroup()
+                        .addContainerGap(131, Short.MAX_VALUE)
+                        .addComponent(EarthIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LeftSidePanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(LogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TitleLabel)))
+                .addGap(115, 115, 115))
         );
         LeftSidePanelLayout.setVerticalGroup(
             LeftSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftSidePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addGroup(LeftSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LeftSidePanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LeftSidePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(139, 139, 139)
                 .addComponent(EarthIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         getContentPane().add(LeftSidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 540));
@@ -341,12 +352,12 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginPanelBtnMouseEntered
 
     private void EarthIconLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EarthIconLabelMouseEntered
-        ImageIcon ear = new ImageIcon("src/main/java/img/earthlogin1.png");
+        ImageIcon ear = new ImageIcon("src/main/java/img/EarthRedImg.png");
         EarthIconLabel.setIcon(ear);
     }//GEN-LAST:event_EarthIconLabelMouseEntered
 
     private void EarthIconLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EarthIconLabelMouseExited
-        ImageIcon ear = new ImageIcon("src/main/java/img/earthlogin.png");
+        ImageIcon ear = new ImageIcon("src/main/java/img/EarthBlackImg.png");
         EarthIconLabel.setIcon(ear);
     }//GEN-LAST:event_EarthIconLabelMouseExited
 
@@ -385,12 +396,12 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitLabelMouseClicked
 
     private void ExitLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseEntered
-        ImageIcon exit1 = new ImageIcon("src/main/java/img/exit1.png");
+        ImageIcon exit1 = new ImageIcon("src/main/java/img/CloseBlackImg.png");
         ExitLabel.setIcon(exit1);
     }//GEN-LAST:event_ExitLabelMouseEntered
 
     private void ExitLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseExited
-        ImageIcon exit2 = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(exit2);
     }//GEN-LAST:event_ExitLabelMouseExited
 
@@ -399,12 +410,12 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_MinimizeLabelMouseClicked
 
     private void MinimizeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseEntered
-        ImageIcon ap = new ImageIcon("src/main/java/img/des1.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeBlackImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseEntered
 
     private void MinimizeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseExited
-        ImageIcon ap = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseExited
 
@@ -447,6 +458,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel FormTitleLabel;
     private javax.swing.JPanel LeftSidePanel;
     private javax.swing.JPanel LoginPanelBtn;
+    private javax.swing.JLabel LogoLabel;
     private javax.swing.JLabel MinimizeLabel;
     private javax.swing.JLabel NameLabel;
     private javax.swing.JLabel NewUserLabel;

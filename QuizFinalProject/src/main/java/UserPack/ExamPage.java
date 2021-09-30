@@ -91,9 +91,11 @@ public class ExamPage extends javax.swing.JFrame {
         Opt2RadioBtn.setSelected(false);
         Opt3RadioBtn.setSelected(false);
         Opt4RadioBtn.setSelected(false);
-        ImageIcon exitlogp = new ImageIcon("src/main/java/img/exit3.png");
+        ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
+        LogoLabel.setIcon(p);
+        ImageIcon exitlogp = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         LabelExit.setIcon(exitlogp);
-        ImageIcon minip = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon minip = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(minip);
         selectedLanguage = language;
         QuizTitle.setText(selectedLanguage);
@@ -141,6 +143,7 @@ public class ExamPage extends javax.swing.JFrame {
         QuestionNoUpdate = new javax.swing.JLabel();
         MinimizeLabel = new javax.swing.JLabel();
         LabelExit = new javax.swing.JLabel();
+        LogoLabel = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         QuestionLabel = new javax.swing.JLabel();
         Opt1RadioBtn = new javax.swing.JRadioButton();
@@ -188,7 +191,7 @@ public class ExamPage extends javax.swing.JFrame {
         QuizTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         QuizTitle.setForeground(new java.awt.Color(255, 255, 255));
         QuizTitle.setText("Quiz ");
-        HeaderPanel.add(QuizTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 320, 68));
+        HeaderPanel.add(QuizTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 300, 68));
 
         TotalQuestionLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         TotalQuestionLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,6 +239,7 @@ public class ExamPage extends javax.swing.JFrame {
             }
         });
         HeaderPanel.add(LabelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 30, 30));
+        HeaderPanel.add(LogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 50, 50));
 
         getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 110));
 
@@ -372,12 +376,12 @@ public class ExamPage extends javax.swing.JFrame {
     }//GEN-LAST:event_MinimizeLabelMouseClicked
 
     private void MinimizeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseEntered
-        ImageIcon ap = new ImageIcon("src/main/java/img/des1.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeBlackImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseEntered
 
     private void MinimizeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseExited
-        ImageIcon ap = new ImageIcon("src/main/java/img/des.png");
+        ImageIcon ap = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ap);
     }//GEN-LAST:event_MinimizeLabelMouseExited
 
@@ -397,12 +401,12 @@ public class ExamPage extends javax.swing.JFrame {
     }//GEN-LAST:event_LabelExitMouseClicked
 
     private void LabelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseEntered
-        ImageIcon exit1 = new ImageIcon("src/main/java/img/exit1.png");
+        ImageIcon exit1 = new ImageIcon("src/main/java/img/CloseBlackImg.png");
         LabelExit.setIcon(exit1);
     }//GEN-LAST:event_LabelExitMouseEntered
 
     private void LabelExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseExited
-        ImageIcon exit2 = new ImageIcon("src/main/java/img/exit.png");
+        ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         LabelExit.setIcon(exit2);
     }//GEN-LAST:event_LabelExitMouseExited
 
@@ -418,6 +422,7 @@ public class ExamPage extends javax.swing.JFrame {
     private javax.swing.JPanel BodyPanel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JLabel LabelExit;
+    private javax.swing.JLabel LogoLabel;
     private javax.swing.JLabel MinimizeLabel;
     private javax.swing.JLabel MinuteLabel;
     private javax.swing.JButton NextQuestionBtn;
