@@ -16,6 +16,9 @@ public class AdminHome extends javax.swing.JFrame {
         ExitLabel.setIcon(ap);
         ImageIcon ao = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ao);
+        ImageIcon a = new ImageIcon("src/main/java/img/youtube.png");
+        BodyPanelLabel.setIcon(a);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -36,6 +39,8 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         ExitLabel = new javax.swing.JLabel();
         MinimizeLabel = new javax.swing.JLabel();
+        BodyPanel = new javax.swing.JPanel();
+        BodyPanelLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(180, 120));
@@ -74,9 +79,9 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("All User");
-        AllUserPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 60, 20));
+        AllUserPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 60, 20));
 
-        HeaderPanel.add(AllUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 60, 80));
+        HeaderPanel.add(AllUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 60, 70));
 
         AllQuestionPanel.setBackground(new java.awt.Color(74, 31, 61));
         AllQuestionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,9 +101,9 @@ public class AdminHome extends javax.swing.JFrame {
         AllQuestionLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         AllQuestionLabel.setForeground(new java.awt.Color(255, 255, 255));
         AllQuestionLabel.setText("All Question");
-        AllQuestionPanel.add(AllQuestionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 90, 20));
+        AllQuestionPanel.add(AllQuestionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 90, 20));
 
-        HeaderPanel.add(AllQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 90, 80));
+        HeaderPanel.add(AllQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 90, 70));
 
         InsertQuestionPanel.setBackground(new java.awt.Color(74, 31, 61));
         InsertQuestionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,9 +164,9 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("User Result");
-        AllResultPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 80, 20));
+        AllResultPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 80, 20));
 
-        HeaderPanel.add(AllResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 80, 80));
+        HeaderPanel.add(AllResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 80, 70));
 
         ExitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -190,7 +195,12 @@ public class AdminHome extends javax.swing.JFrame {
         });
         HeaderPanel.add(MinimizeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 20, 30, 30));
 
-        getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 90));
+        getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 100));
+
+        BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        BodyPanel.add(BodyPanelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 430));
+
+        getContentPane().add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1080, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -310,6 +320,8 @@ public class AdminHome extends javax.swing.JFrame {
     private javax.swing.JPanel AllQuestionPanel;
     private javax.swing.JPanel AllResultPanel;
     private javax.swing.JPanel AllUserPanel;
+    private javax.swing.JPanel BodyPanel;
+    private javax.swing.JLabel BodyPanelLabel;
     private javax.swing.JLabel ExitLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel InsertQuestionPanel;

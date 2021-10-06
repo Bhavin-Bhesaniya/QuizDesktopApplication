@@ -11,6 +11,9 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
 
     public UpdateDeleteQuestion() {
         initComponents();
+        UpdateBtn.setEnabled(false);
+        DeleteBtn.setEnabled(false);
+        ClearSearchBtn.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +40,7 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
         SearchField = new javax.swing.JTextField();
         SearchBtn = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
+        ClearSearchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 130));
@@ -160,7 +164,7 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
                 SearchBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(SearchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 110, 40));
+        jPanel1.add(SearchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 110, 40));
 
         DeleteBtn.setBackground(new java.awt.Color(0, 102, 102));
         DeleteBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -173,6 +177,17 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 530, 100, 40));
+
+        ClearSearchBtn.setBackground(new java.awt.Color(0, 102, 102));
+        ClearSearchBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ClearSearchBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ClearSearchBtn.setText("Clear Search");
+        ClearSearchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearSearchBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ClearSearchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 140, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,12 +254,16 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
                 Option4.setText(rs.getString(6));
                 RightAnswer.setText(rs.getString(7));
                 SearchField.setEditable(false);
+                UpdateBtn.setEnabled(true);
+                DeleteBtn.setEnabled(true);
+                ClearSearchBtn.setEnabled(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Question id not exist");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
+
     }//GEN-LAST:event_SearchBtnActionPerformed
 
     private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
@@ -261,6 +280,19 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_DeleteBtnActionPerformed
+
+    private void ClearSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearSearchBtnActionPerformed
+        NewQuestion.setText("");
+        Option1.setText("");
+        Option2.setText("");
+        Option3.setText("");
+        Option4.setText("");
+        RightAnswer.setText("");
+        SearchField.setEditable(true);
+        UpdateBtn.setEnabled(false);
+        DeleteBtn.setEnabled(false);
+        ClearSearchBtn.setEnabled(false);
+    }//GEN-LAST:event_ClearSearchBtnActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -270,6 +302,7 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
+    private javax.swing.JButton ClearSearchBtn;
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JTextField NewQuestion;
     private javax.swing.JTextField Option1;

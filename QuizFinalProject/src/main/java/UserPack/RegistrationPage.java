@@ -150,6 +150,12 @@ public class RegistrationPage extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 GoLoginPanelMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                GoLoginPanelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                GoLoginPanelMouseExited(evt);
+            }
         });
         GoLoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -492,6 +498,15 @@ public class RegistrationPage extends javax.swing.JFrame {
     private void PassEyeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassEyeMouseExited
         EnterPassword.setEchoChar('*');
     }//GEN-LAST:event_PassEyeMouseExited
+
+    private void GoLoginPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoLoginPanelMouseEntered
+        GoLoginPanel.setBackground(new java.awt.Color(74, 31, 61));
+        
+    }//GEN-LAST:event_GoLoginPanelMouseEntered
+
+    private void GoLoginPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoLoginPanelMouseExited
+        GoLoginPanel.setBackground(new java.awt.Color(186, 79, 84));
+    }//GEN-LAST:event_GoLoginPanelMouseExited
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -245,10 +245,16 @@ public class InsertQuestion extends javax.swing.JFrame {
         try {
             Connection con = DatabaseConnection.getCon();
             PreparedStatement ps = con.prepareStatement("insert into quizquestion (question,opt1,opt2,opt3,opt4,answer,language) values ('" + question + "','" + opt1 + "','" + opt2 + "','" + opt3 + "','" + opt4 + "','" + answer + "','" + lang + "')");
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Successfully updated");
-            dispose();
-            new InsertQuestion().setVisible(true);
+            if ("".equals(question) | "".equals(opt1) | "".equals(opt2) | "".equals(opt3) | "".equals(opt4) | "".equals(answer)) {
+                JOptionPane.showMessageDialog(null, "Please Enter All Details");
+            } else {
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Successfully updated");
+                dispose();
+                new InsertQuestion().setVisible(true);
+
+            }
+
         } catch (HeadlessException | SecurityException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
