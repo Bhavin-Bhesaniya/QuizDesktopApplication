@@ -1,7 +1,6 @@
 package UserPack;
 
 import Database.DatabaseConnection;
-import static UserPack.UserProfile.uId;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

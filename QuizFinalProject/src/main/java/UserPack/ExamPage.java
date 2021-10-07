@@ -388,8 +388,6 @@ public class ExamPage extends javax.swing.JFrame {
     private void LabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseClicked
         int a = JOptionPane.showConfirmDialog(null, "Do you really want to quit", "Select", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
-            System.exit(0);
-        } else {
             int b = JOptionPane.showConfirmDialog(null, "Leave Us A Review", "Select", JOptionPane.YES_NO_OPTION);
             {   if (b == 0) {
                     new FeedBackForm(userId).setVisible(true);
@@ -397,7 +395,7 @@ public class ExamPage extends javax.swing.JFrame {
                     System.exit(0);
                 }
             }
-        }
+    } 
     }//GEN-LAST:event_LabelExitMouseClicked
 
     private void LabelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseEntered
