@@ -368,7 +368,7 @@ public class HomePage extends javax.swing.JFrame {
 
         FollowBhavinLb.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         FollowBhavinLb.setForeground(new java.awt.Color(255, 255, 255));
-        FollowBhavinLb.setText("Contact Us :- Bhavin");
+        FollowBhavinLb.setText("Contact Bhavin :-");
         BodyAboutUs.add(FollowBhavinLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 180, 40));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
@@ -420,7 +420,7 @@ public class HomePage extends javax.swing.JFrame {
 
         FollowMayurLb.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         FollowMayurLb.setForeground(new java.awt.Color(255, 255, 255));
-        FollowMayurLb.setText("Contact Us :- Mayur");
+        FollowMayurLb.setText("Contact  Mayur :-");
         BodyAboutUs.add(FollowMayurLb, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 180, 40));
 
         GithubLink.addMouseListener(new java.awt.event.MouseAdapter() {

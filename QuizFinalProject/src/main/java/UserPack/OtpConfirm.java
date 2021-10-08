@@ -198,12 +198,16 @@ public class OtpConfirm extends javax.swing.JFrame {
                     Connection con = DatabaseConnection.getCon();
                     PreparedStatement pst = con.prepareStatement("insert into register(name,email,pass) values ('" + name + "','" + receivemail + "','" + password + "')");
                     Statement st = con.createStatement();
+                    
                     ResultSet rst = st.executeQuery("select * from register where email ='" + receivemail + "'");
-                    if (receivemail.equals(rst)) {
+             
+                    if (rst.equals(receivemail)) {
                         JOptionPane.showMessageDialog(null, "You have Already Register with this email id");
                         new RegistrationPage().setVisible(true);
                         dispose();
-                    } else {
+                        
+                    } 
+                    else {
                         pst.executeUpdate();
                         ResultSet rs = st.executeQuery("select id from register where email ='" + receivemail + "'");
                         rs.next();

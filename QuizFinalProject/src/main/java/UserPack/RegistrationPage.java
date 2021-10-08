@@ -419,6 +419,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         Matcher match = patt.matcher(EnterPassword.getText());
         if (!match.matches()) {
             ErrorShow.setText("Not Fulfill Password Condition");
+            RegistrationBtn.setEnabled(false);
         } else {
             ErrorShow.setText(null);
             RegistrationBtn.setEnabled(true);

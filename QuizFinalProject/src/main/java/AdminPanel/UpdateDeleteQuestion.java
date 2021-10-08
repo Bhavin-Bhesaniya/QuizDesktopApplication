@@ -288,6 +288,7 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
         Option3.setText("");
         Option4.setText("");
         RightAnswer.setText("");
+        SearchField.setText("");
         SearchField.setEditable(true);
         UpdateBtn.setEnabled(false);
         DeleteBtn.setEnabled(false);

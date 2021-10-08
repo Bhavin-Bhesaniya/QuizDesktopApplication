@@ -10,16 +10,15 @@ import javax.swing.Timer;
 
 public class ExamPage extends javax.swing.JFrame {
 
-    public int questionId = 0;
-    public String answer;
-    public int min = 0, sec = 0, marks = 0;
+    int questionId = 0,counter = 0,min = 0, sec = 0, marks = 0;
+    String answer;
     static String selectedLanguage;
-    int counter = 0;
     static int userId;
 
+    //Answer Check
     public void answerCheck() {
         String studentAnswer;
-        if (Opt1RadioBtn.isSelected()) {
+        if  (Opt1RadioBtn.isSelected()) {
             studentAnswer = Opt1RadioBtn.getText();
         } else if (Opt2RadioBtn.isSelected()) {
             studentAnswer = Opt2RadioBtn.getText();
@@ -34,28 +33,30 @@ public class ExamPage extends javax.swing.JFrame {
             marks = marks + 1;
         }
 
-        //clear jradio button
+        //Clear Radio Button
         Opt1RadioBtn.setSelected(false);
         Opt2RadioBtn.setSelected(false);
         Opt3RadioBtn.setSelected(false);
         Opt4RadioBtn.setSelected(false);
 
-        //lastquestion hide button show Submit button
+        //lastquestion hide next button show Submit button
         if (counter == 9) {
             NextQuestionBtn.setVisible(false);
             SubmitBtn.setVisible(true);
         }
     }
 
+    //Every time press next button
     public void question() {
         try {
             Connection con = DatabaseConnection.getCon();
             Statement st = con.createStatement();
+            //Fetch Question From Database 
             ResultSet rsl = st.executeQuery("select * from quizquestion where id > " + questionId + " AND language = '" + selectedLanguage + "' LIMIT 1");
             while (rsl.next()) {
-                counter++;
+                counter++;      
                 questionId = Integer.parseInt(rsl.getString(1));
-                QuestionNoUpdate.setText(String.valueOf(counter));
+                QuestionNoUpdate.setText(String.valueOf(counter));  //Set Question Number
                 QuestionLabel.setText(rsl.getString(2));
                 Opt1RadioBtn.setText(rsl.getString(3));
                 Opt2RadioBtn.setText(rsl.getString(4));
@@ -71,7 +72,7 @@ public class ExamPage extends javax.swing.JFrame {
     public void submit() {
         answerCheck();
         try {
-
+            
             Connection con = DatabaseConnection.getCon();
             PreparedStatement pst = con.prepareStatement("insert into quizmarks (user_id,marks,language) values(" + userId + "," + marks + ",'" + selectedLanguage + "')");
             pst.executeUpdate();
@@ -87,24 +88,22 @@ public class ExamPage extends javax.swing.JFrame {
 
     public ExamPage(String language, int uid) {
         initComponents();
-        Opt1RadioBtn.setSelected(false);
-        Opt2RadioBtn.setSelected(false);
-        Opt3RadioBtn.setSelected(false);
-        Opt4RadioBtn.setSelected(false);
         ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
         LogoLabel.setIcon(p);
         ImageIcon exitlogp = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         LabelExit.setIcon(exitlogp);
         ImageIcon minip = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(minip);
-        selectedLanguage = language;
-        QuizTitle.setText(selectedLanguage);
-        userId = uid;
+        
+        //Execution Begin From Here
+        selectedLanguage = language;            //User Selected language 
+        QuizTitle.setText(selectedLanguage);    
+        userId = uid;                            //Take UserId
         SubmitBtn.setVisible(false);
 
-        question();
+        question();           //Question Method Call 
         
-        //timerprogramm
+        //Timer Program
         setLocationRelativeTo(this);
         time = new Timer(1000, new ActionListener() {
             @Override

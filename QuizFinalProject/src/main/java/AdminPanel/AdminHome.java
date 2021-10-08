@@ -1,5 +1,6 @@
 package AdminPanel;
 
+import UserPack.LoginPage;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,6 +40,8 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         ExitLabel = new javax.swing.JLabel();
         MinimizeLabel = new javax.swing.JLabel();
+        Logout = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         BodyPanelLabel = new javax.swing.JLabel();
 
@@ -81,7 +84,7 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel2.setText("All User");
         AllUserPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 60, 20));
 
-        HeaderPanel.add(AllUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 60, 70));
+        HeaderPanel.add(AllUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 70));
 
         AllQuestionPanel.setBackground(new java.awt.Color(74, 31, 61));
         AllQuestionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,7 +106,7 @@ public class AdminHome extends javax.swing.JFrame {
         AllQuestionLabel.setText("All Question");
         AllQuestionPanel.add(AllQuestionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 90, 20));
 
-        HeaderPanel.add(AllQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 90, 70));
+        HeaderPanel.add(AllQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 90, 70));
 
         InsertQuestionPanel.setBackground(new java.awt.Color(74, 31, 61));
         InsertQuestionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,7 +127,7 @@ public class AdminHome extends javax.swing.JFrame {
         sinup.setText("Insert Question");
         InsertQuestionPanel.add(sinup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 29, 110, 20));
 
-        HeaderPanel.add(InsertQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, 70));
+        HeaderPanel.add(InsertQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, 70));
 
         UpdateDeleteQuestionPanel.setBackground(new java.awt.Color(74, 31, 61));
         UpdateDeleteQuestionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,7 +148,7 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel3.setText("Update/Delete Question");
         UpdateDeleteQuestionPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, -1));
 
-        HeaderPanel.add(UpdateDeleteQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 160, 70));
+        HeaderPanel.add(UpdateDeleteQuestionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 160, 70));
 
         AllResultPanel.setBackground(new java.awt.Color(74, 31, 61));
         AllResultPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +169,7 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel8.setText("User Result");
         AllResultPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 80, 20));
 
-        HeaderPanel.add(AllResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 80, 70));
+        HeaderPanel.add(AllResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 80, 70));
 
         ExitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -179,7 +182,7 @@ public class AdminHome extends javax.swing.JFrame {
                 ExitLabelMouseExited(evt);
             }
         });
-        HeaderPanel.add(ExitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 20, 30, 30));
+        HeaderPanel.add(ExitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 30, 30));
 
         MinimizeLabel.setBackground(new java.awt.Color(186, 79, 84));
         MinimizeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,12 +196,33 @@ public class AdminHome extends javax.swing.JFrame {
                 MinimizeLabelMouseExited(evt);
             }
         });
-        HeaderPanel.add(MinimizeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 20, 30, 30));
+        HeaderPanel.add(MinimizeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 20, 30, 30));
+
+        Logout.setBackground(new java.awt.Color(74, 31, 61));
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LogoutMouseExited(evt);
+            }
+        });
+        Logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Logout");
+        Logout.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, 20));
+
+        HeaderPanel.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, 70, 60));
 
         getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 100));
 
         BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        BodyPanel.add(BodyPanelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 430));
+        BodyPanel.add(BodyPanelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 540, 290));
 
         getContentPane().add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1080, 430));
 
@@ -300,6 +324,19 @@ public class AdminHome extends javax.swing.JFrame {
         ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         ExitLabel.setIcon(exit2);
     }//GEN-LAST:event_ExitLabelMouseExited
+
+    private void LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseClicked
+        new LoginPage().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_LogoutMouseClicked
+
+    private void LogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseEntered
+        Logout.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
+    }//GEN-LAST:event_LogoutMouseEntered
+
+    private void LogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseExited
+        Logout.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.red));
+    }//GEN-LAST:event_LogoutMouseExited
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -325,11 +362,13 @@ public class AdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel ExitLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel InsertQuestionPanel;
+    private javax.swing.JPanel Logout;
     private javax.swing.JLabel MinimizeLabel;
     private javax.swing.JPanel UpdateDeleteQuestionPanel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel sinup;
     // End of variables declaration//GEN-END:variables
 }
