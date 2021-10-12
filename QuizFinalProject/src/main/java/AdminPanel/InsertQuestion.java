@@ -15,6 +15,8 @@ public class InsertQuestion extends javax.swing.JFrame {
         ExitLabel.setIcon(ap);
         ImageIcon ao = new ImageIcon("src/main/java/img/des.png");
         MinimizeLabel.setIcon(ao);
+        
+        //Set Question In The Label Using Count Method Which Count all question no and return in result set
         try {
             Connection con = DatabaseConnection.getCon();
             Statement stmt = con.createStatement();
@@ -259,10 +261,10 @@ public class InsertQuestion extends javax.swing.JFrame {
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
         try {
             new AdminHome().setVisible(true);
+            dispose();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InsertQuestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        dispose();
+            JOptionPane.showMessageDialog(rootPane, ex);
+        }        
     }//GEN-LAST:event_BackBtnActionPerformed
 
     private void MinimizeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeLabelMouseClicked

@@ -38,13 +38,14 @@ public class AllUserResult extends javax.swing.JFrame {
         HeaderPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BackBtn = new javax.swing.JButton();
-        TabelPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ResultTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(340, 180));
+        setMinimumSize(new java.awt.Dimension(800, 430));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         HeaderPanel.setBackground(new java.awt.Color(74, 31, 61));
@@ -70,11 +71,9 @@ public class AllUserResult extends javax.swing.JFrame {
 
         getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
 
-        TabelPanel.setBackground(new java.awt.Color(0, 0, 0));
-        TabelPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 1, 1, new java.awt.Color(255, 204, 51)));
-        TabelPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(803, 430));
 
-        ResultTable.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         ResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -105,9 +104,7 @@ public class AllUserResult extends javax.swing.JFrame {
             ResultTable.getColumnModel().getColumn(5).setMaxWidth(120);
         }
 
-        TabelPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 330));
-
-        getContentPane().add(TabelPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, 330));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,7 +129,6 @@ public class AllUserResult extends javax.swing.JFrame {
     private javax.swing.JButton BackBtn;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JTable ResultTable;
-    private javax.swing.JPanel TabelPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

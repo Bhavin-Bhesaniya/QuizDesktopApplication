@@ -44,38 +44,38 @@ public class RegistrationPage extends javax.swing.JFrame {
         pass.setIcon(a);
         ImageIcon passeye = new ImageIcon("src/main/java/img/PasswordEyeImg.png");
         PassEye.setIcon(passeye);
+
         EnterEmail.setEditable(false);
         EnterPassword.setEditable(false);
         RegistrationBtn.setEnabled(false);
     }
 
-        public static void sendEmail(String message, String subject, String to, String from) {
-            Properties properties = System.getProperties();
-            properties.put("mail.smtp.host", "smtp.gmail.com");
-            properties.put("mail.smtp.port", "465");
-            properties.put("mail.smtp.ssl.enable", "true");
-            properties.put("mail.smtp.auth", "true");
-            Session session = Session.getDefaultInstance(properties,
-                    new javax.mail.Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("bhavin.otp2021@gmail.com", "Bh@vin12Op");
-                }
-            });
-            session.setDebug(true);
-            MimeMessage m = new MimeMessage(session);
-            try {
-                m.setFrom(from);
-                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-                m.setSubject(subject);
-                m.setContent(message, "text/html");
-                Transport.send(m);
-                System.out.print("Sent success.........");
-
-            } catch (MessagingException e) {
-                System.out.println(e);
+    public static void sendEmail(String message, String subject, String to, String from) {
+        Properties properties = System.getProperties();
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.auth", "true");
+        Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("bhavin.otp2021@gmail.com", "Bh@vin12Op");
             }
+        });
+        session.setDebug(true);
+        MimeMessage m = new MimeMessage(session);
+        try {
+            m.setFrom(from);
+            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            m.setSubject(subject);
+            m.setContent(message, "text/html");
+            Transport.send(m);
+            System.out.print("Sent success.........");
+
+        } catch (MessagingException e) {
+            System.out.println(e);
         }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -105,7 +105,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         LeftPanel = new javax.swing.JPanel();
         EarthLabel = new javax.swing.JLabel();
         TitleLabel = new javax.swing.JLabel();
-        ErrorShow = new javax.swing.JLabel();
+        ErrorShowingLabel = new javax.swing.JLabel();
         LogoLabel = new javax.swing.JLabel();
 
         exit.setBackground(new java.awt.Color(74, 31, 61));
@@ -311,8 +311,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         TitleLabel.setForeground(new java.awt.Color(255, 255, 255));
         TitleLabel.setText("Fun With Learn");
 
-        ErrorShow.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ErrorShow.setForeground(new java.awt.Color(255, 255, 255));
+        ErrorShowingLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ErrorShowingLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
         LeftPanel.setLayout(LeftPanelLayout);
@@ -322,7 +322,7 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LeftPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(ErrorShow, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ErrorShowingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LeftPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(LogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,7 +343,7 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(EarthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
-                .addComponent(ErrorShow, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ErrorShowingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
         );
 
@@ -359,16 +359,16 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_GoLoginPanelMouseClicked
 
     private void EnterNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EnterNameKeyReleased
-        String PATTERN = "^[a-zA-Z]{0,30}$";
+        String PATTERN = "^[a-zA-Z]{0,9}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match = patt.matcher(EnterName.getText());
         if (!match.matches()) {
-            ErrorShow.setText("Name format incorrect");
+            ErrorShowingLabel.setText("Name Format Incorrect");
             EnterEmail.setEditable(false);
             EnterPassword.setEditable(false);
             RegistrationBtn.setEnabled(false);
         } else {
-            ErrorShow.setText(null);
+            ErrorShowingLabel.setText(null);
             EnterEmail.setEditable(true);
         }
     }//GEN-LAST:event_EnterNameKeyReleased
@@ -405,10 +405,10 @@ public class RegistrationPage extends javax.swing.JFrame {
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match = patt.matcher(EnterEmail.getText());
         if (!match.matches()) {
-            ErrorShow.setText("Email format incorrect");
+            ErrorShowingLabel.setText("Email format incorrect");
             EnterPassword.setEditable(false);
         } else {
-            ErrorShow.setText(null);
+            ErrorShowingLabel.setText(null);
             EnterPassword.setEditable(true);
         }
     }//GEN-LAST:event_EnterEmailKeyReleased
@@ -418,10 +418,10 @@ public class RegistrationPage extends javax.swing.JFrame {
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match = patt.matcher(EnterPassword.getText());
         if (!match.matches()) {
-            ErrorShow.setText("Not Fulfill Password Condition");
+            ErrorShowingLabel.setText("Not Fulfill Password Condition");
             RegistrationBtn.setEnabled(false);
         } else {
-            ErrorShow.setText(null);
+            ErrorShowingLabel.setText(null);
             RegistrationBtn.setEnabled(true);
         }
     }//GEN-LAST:event_EnterPasswordKeyReleased
@@ -437,7 +437,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         String from = "bhavin.otp2021@gmail.com";
         sendEmail(message, subject, to, from);
         JOptionPane.showMessageDialog(null, "Plz Confirm With Otp for Login");
-        new OtpConfirm(otp, to, name, password).setVisible(true);
+        new OtpConfirm(otp, to, name, password).setVisible(true); //Pass Value in construtor
         dispose();
     }//GEN-LAST:event_RegistrationBtnActionPerformed
 
@@ -500,13 +500,12 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_PassEyeMouseExited
 
     private void GoLoginPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoLoginPanelMouseEntered
-        GoLoginPanel.setBackground(new java.awt.Color(74, 31, 61));        
+        GoLoginPanel.setBackground(new java.awt.Color(74, 31, 61));
     }//GEN-LAST:event_GoLoginPanelMouseEntered
 
     private void GoLoginPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoLoginPanelMouseExited
         GoLoginPanel.setBackground(new java.awt.Color(186, 79, 84));
     }//GEN-LAST:event_GoLoginPanelMouseExited
-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -522,7 +521,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     private javax.swing.JTextField EnterEmail;
     private javax.swing.JTextField EnterName;
     private javax.swing.JPasswordField EnterPassword;
-    private javax.swing.JLabel ErrorShow;
+    private javax.swing.JLabel ErrorShowingLabel;
     private javax.swing.JLabel ExitLabel;
     private javax.swing.JLabel GoLoginLabel;
     private javax.swing.JPanel GoLoginPanel;

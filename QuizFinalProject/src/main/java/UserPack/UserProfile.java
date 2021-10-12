@@ -17,6 +17,8 @@ public class UserProfile extends javax.swing.JFrame {
         ImageIcon passeye = new ImageIcon("src/main/java/img/PasswordEyeImg.png");
         PassEye.setIcon(passeye);
         uId = userId;
+        
+        //Load User Profile Through User Id
         try {
             Connection con = DatabaseConnection.getCon();
             Statement st = con.createStatement();
@@ -203,7 +205,7 @@ public class UserProfile extends javax.swing.JFrame {
         String id = IdField.getText();
         try {
             Connection con = DatabaseConnection.getCon();
-            PreparedStatement pst = con.prepareStatement("delete  from register where id = '" + id + "'");
+            PreparedStatement pst = con.prepareStatement("delete from register where id = '" + id + "'");
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Successfully Deleted");
             dispose();
@@ -229,7 +231,6 @@ public class UserProfile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Successfully updated");
             dispose();
             new UserProfile(uId).setVisible(true);
-
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }

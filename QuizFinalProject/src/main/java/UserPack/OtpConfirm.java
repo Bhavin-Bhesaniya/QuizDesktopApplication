@@ -7,21 +7,22 @@ import javax.swing.JOptionPane;
 
 public class OtpConfirm extends javax.swing.JFrame {
 
+    //Global Variable Declare
     String name;
     String receiveotp;
     String receivemail;
     String password;
 
+    //Get Parameter from register for store in database and check otp and receivemail used to resend otp
     public OtpConfirm(String otp, String to, String uname, String passwd) {
         initComponents();
         receiveotp = otp;
         receivemail = to;
         name = uname;
         password = passwd;
-        ImageIcon ao = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
-        ExitLabel.setIcon(ao);
     }
 
+    //Default Construtor
     public OtpConfirm() {
         initComponents();
         ImageIcon ao = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
@@ -37,7 +38,7 @@ public class OtpConfirm extends javax.swing.JFrame {
         OtpTite = new javax.swing.JLabel();
         ResendOtpPanel = new javax.swing.JPanel();
         ResendOtp = new javax.swing.JLabel();
-        ConfirmOtp = new javax.swing.JPanel();
+        ConfirmOtpBtn = new javax.swing.JPanel();
         ConfirmOtpLabel = new javax.swing.JLabel();
         BackPanel = new javax.swing.JPanel();
         BackLabel = new javax.swing.JLabel();
@@ -100,17 +101,17 @@ public class OtpConfirm extends javax.swing.JFrame {
 
         OtpMainPanel.add(ResendOtpPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 158, -1, -1));
 
-        ConfirmOtp.setBackground(new java.awt.Color(74, 31, 61));
-        ConfirmOtp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        ConfirmOtp.addMouseListener(new java.awt.event.MouseAdapter() {
+        ConfirmOtpBtn.setBackground(new java.awt.Color(74, 31, 61));
+        ConfirmOtpBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        ConfirmOtpBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConfirmOtpMouseClicked(evt);
+                ConfirmOtpBtnMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ConfirmOtpMouseEntered(evt);
+                ConfirmOtpBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ConfirmOtpMouseExited(evt);
+                ConfirmOtpBtnMouseExited(evt);
             }
         });
 
@@ -118,21 +119,21 @@ public class OtpConfirm extends javax.swing.JFrame {
         ConfirmOtpLabel.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmOtpLabel.setText("Confirm");
 
-        javax.swing.GroupLayout ConfirmOtpLayout = new javax.swing.GroupLayout(ConfirmOtp);
-        ConfirmOtp.setLayout(ConfirmOtpLayout);
-        ConfirmOtpLayout.setHorizontalGroup(
-            ConfirmOtpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConfirmOtpLayout.createSequentialGroup()
+        javax.swing.GroupLayout ConfirmOtpBtnLayout = new javax.swing.GroupLayout(ConfirmOtpBtn);
+        ConfirmOtpBtn.setLayout(ConfirmOtpBtnLayout);
+        ConfirmOtpBtnLayout.setHorizontalGroup(
+            ConfirmOtpBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConfirmOtpBtnLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(ConfirmOtpLabel)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-        ConfirmOtpLayout.setVerticalGroup(
-            ConfirmOtpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ConfirmOtpBtnLayout.setVerticalGroup(
+            ConfirmOtpBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ConfirmOtpLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
-        OtpMainPanel.add(ConfirmOtp, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 158, -1, -1));
+        OtpMainPanel.add(ConfirmOtpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 158, -1, -1));
 
         BackPanel.setBackground(new java.awt.Color(74, 31, 61));
         BackPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -188,41 +189,45 @@ public class OtpConfirm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void ConfirmOtpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmOtpMouseClicked
+    private void ConfirmOtpBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmOtpBtnMouseClicked
         String a = EnterOtp.getText();
+
         if (a.equals("")) {
             JOptionPane.showMessageDialog(null, "please enter otp");
         } else {
-            if (receiveotp.equals(a)) {
+            if (receiveotp.equals(a)) { //Check Otp Enter Is True Or Not
                 try {
+                    //Store User Data In Database                    
                     Connection con = DatabaseConnection.getCon();
                     PreparedStatement pst = con.prepareStatement("insert into register(name,email,pass) values ('" + name + "','" + receivemail + "','" + password + "')");
                     Statement st = con.createStatement();
-                    
-                    ResultSet rst = st.executeQuery("select * from register where email ='" + receivemail + "'");
-             
-                    if (rst.equals(receivemail)) {
+
+                    //Check User Register With This Email Id Already Or Not
+                    ResultSet rst = st.executeQuery("select * from register where email = '" + receivemail + "'");
+                    if (receivemail.equals(rst)) {
                         JOptionPane.showMessageDialog(null, "You have Already Register with this email id");
                         new RegistrationPage().setVisible(true);
                         dispose();
-                        
                     } 
                     else {
-                        pst.executeUpdate();
+                        pst.executeUpdate();                    //If New Email Than Store In Database
                         ResultSet rs = st.executeQuery("select id from register where email ='" + receivemail + "'");
                         rs.next();
-                        int user_id = rs.getInt(1);
-                        new QuizHome(user_id).setVisible(true);
+                        int user_id = rs.getInt(1);             //Generate Unique UserId
+                        new QuizHome(user_id).setVisible(true); //Move To The QuizHome Screen
                         dispose();
                     }
+                    
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, e);
+                    new RegistrationPage().setVisible(true);
+                    dispose();
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Please Enter Right Otp");
             }
         }
-    }//GEN-LAST:event_ConfirmOtpMouseClicked
+    }//GEN-LAST:event_ConfirmOtpBtnMouseClicked
 
     private void ResendOtpPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResendOtpPanelMouseClicked
         RegistrationPage obj = new RegistrationPage();
@@ -234,13 +239,13 @@ public class OtpConfirm extends javax.swing.JFrame {
         obj.sendEmail(message, subject, to, from);
     }//GEN-LAST:event_ResendOtpPanelMouseClicked
 
-    private void ConfirmOtpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmOtpMouseEntered
-        ConfirmOtp.setBackground(new java.awt.Color(186, 79, 84));
-    }//GEN-LAST:event_ConfirmOtpMouseEntered
+    private void ConfirmOtpBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmOtpBtnMouseEntered
+        ConfirmOtpBtn.setBackground(new java.awt.Color(186, 79, 84));
+    }//GEN-LAST:event_ConfirmOtpBtnMouseEntered
 
-    private void ConfirmOtpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmOtpMouseExited
-        ConfirmOtp.setBackground(new java.awt.Color(74, 31, 61));
-    }//GEN-LAST:event_ConfirmOtpMouseExited
+    private void ConfirmOtpBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmOtpBtnMouseExited
+        ConfirmOtpBtn.setBackground(new java.awt.Color(74, 31, 61));
+    }//GEN-LAST:event_ConfirmOtpBtnMouseExited
 
     private void ResendOtpPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResendOtpPanelMouseEntered
         ResendOtpPanel.setBackground(new java.awt.Color(186, 79, 84));
@@ -279,7 +284,6 @@ public class OtpConfirm extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_ExitLabelMouseClicked
-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -291,7 +295,7 @@ public class OtpConfirm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackLabel;
     private javax.swing.JPanel BackPanel;
-    private javax.swing.JPanel ConfirmOtp;
+    private javax.swing.JPanel ConfirmOtpBtn;
     private javax.swing.JLabel ConfirmOtpLabel;
     private javax.swing.JTextField EnterOtp;
     private javax.swing.JLabel ExitLabel;

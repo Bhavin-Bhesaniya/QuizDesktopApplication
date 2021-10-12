@@ -316,24 +316,28 @@ public class LoginPage extends javax.swing.JFrame {
         String passwd = EnterPassword.getText();
 
         try {
+            //Check Email And Password
             Connection con = DatabaseConnection.getCon();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from register where email ='" + umail + "' and pass = '" + passwd + "'");
 
             if (umail.equals("") & passwd.equals("")) {
-                JOptionPane.showMessageDialog(null, "Please enter detail", "Select", JOptionPane.INFORMATION_MESSAGE);
-            } else {
+                JOptionPane.showMessageDialog(null, "Please Enter All Detail");
+            } //Check Result Set Object
+            else {
                 if (rs.next()) {
+                    //Assign Userid 
                     int user_id = rs.getInt(1);
-                    JOptionPane.showMessageDialog(null, "Successfully login ", "Select", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Successfully login");
                     new QuizHome(user_id).setVisible(true);
                     dispose();
-                } else {
+                }//For Admin Login 
+                else {
                     if ((umail.equals("b") & passwd.equals("admin")) || (umail.equals("m") & passwd.equals("admin"))) {
                         new AdminHome().setVisible(true);
                         dispose();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Please enter valid username and password ", "Select", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Please Enter Valid Username and Password ");
                     }
                 }
             }
@@ -429,7 +433,7 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_ForgotPasswordPanelBtnMouseEntered
 
     private void ForgotPasswordPanelBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgotPasswordPanelBtnMouseExited
-       ForgotPasswordPanelBtn.setBackground(new java.awt.Color(74, 31, 61));
+        ForgotPasswordPanelBtn.setBackground(new java.awt.Color(74, 31, 61));
     }//GEN-LAST:event_ForgotPasswordPanelBtnMouseExited
 
     private void PassEyeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassEyeLabelMouseEntered

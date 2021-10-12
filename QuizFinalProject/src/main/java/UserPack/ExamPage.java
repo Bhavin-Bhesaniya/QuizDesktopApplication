@@ -14,78 +14,9 @@ public class ExamPage extends javax.swing.JFrame {
     String answer;
     static String selectedLanguage;
     static int userId;
-    Timer time;
+    Timer time;   
 
-//Answer Check
-    public void answerCheck() {
-        String studentAnswer;
-        if (Opt1RadioBtn.isSelected()) {
-            studentAnswer = Opt1RadioBtn.getText();
-        } else if (Opt2RadioBtn.isSelected()) {
-            studentAnswer = Opt2RadioBtn.getText();
-        } else if (Opt3RadioBtn.isSelected()) {
-            studentAnswer = Opt3RadioBtn.getText();
-        } else {
-            studentAnswer = Opt4RadioBtn.getText();
-        }
-
-        //Checking Marks
-        if (studentAnswer.equals(answer)) {
-            marks = marks + 1;
-        }
-        
-        //Clear Radio Button
-        Opt1RadioBtn.setSelected(false);
-        Opt2RadioBtn.setSelected(false);
-        Opt3RadioBtn.setSelected(false);
-        Opt4RadioBtn.setSelected(false);
-
-        //lastquestion hide next button show Submit button
-        if (counter == 9) {
-            NextQuestionBtn.setVisible(false);
-            SubmitBtn.setVisible(true);
-        }
-    }
-
-    //Every time press next button
-    public void question() {
-        try {
-            Connection con = DatabaseConnection.getCon();
-            Statement st = con.createStatement();
-            //Fetch Question From Database 
-            ResultSet rsl = st.executeQuery("select * from quizquestion where id > " + questionId + " AND language = '" + selectedLanguage + "' LIMIT 1");
-            while (rsl.next()) {
-                counter++;
-                questionId = Integer.parseInt(rsl.getString(1));
-                QuestionNoUpdate.setText(String.valueOf(counter));  //Set Question Number
-                QuestionLabel.setText(rsl.getString(2));
-                Opt1RadioBtn.setText(rsl.getString(3));
-                Opt2RadioBtn.setText(rsl.getString(4));
-                Opt3RadioBtn.setText(rsl.getString(5));
-                Opt4RadioBtn.setText(rsl.getString(6));
-                answer = rsl.getString(7);
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
-    public void submit() {
-        answerCheck();
-        try {
-
-            Connection con = DatabaseConnection.getCon();
-            PreparedStatement pst = con.prepareStatement("insert into quizmarks (user_id,marks,language) values(" + userId + "," + marks + ",'" + selectedLanguage + "')");
-            pst.executeUpdate();
-            String marks1 = String.valueOf(marks);
-            JOptionPane.showMessageDialog(null, "Your Total Marks Is : " + marks1, "Select", JOptionPane.INFORMATION_MESSAGE);
-            dispose();
-            new QuizHome(userId).setVisible(true);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
+    //Default File Constructor
     public ExamPage(String language, int uid) {
         initComponents();
         ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
@@ -94,17 +25,16 @@ public class ExamPage extends javax.swing.JFrame {
         LabelExit.setIcon(exitlogp);
         ImageIcon minip = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(minip);
+ 
+        selectedLanguage = language;            
+        QuizTitle.setText(selectedLanguage);    //User Selected language Show In Header
+        userId = uid;                           
+        SubmitBtn.setVisible(false);            //Hide Submit Button Till 10 Question
 
-        //Execution Begin From Here
-        selectedLanguage = language;            //User Selected language 
-        QuizTitle.setText(selectedLanguage);
-        userId = uid;                            //Take UserId
-        SubmitBtn.setVisible(false);
+        question();                             //Question Method Call 
 
-        question();           //Question Method Call 
-
-        //Timer Program
-//        setLocationRelativeTo(this);
+        
+        // Timer Code :-
         time = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,7 +54,83 @@ public class ExamPage extends javax.swing.JFrame {
         });
         time.start();
     }
+    
+    //Reterive Question From Database that set in frame Every time next button press this method call
+    public void question() {
+        try {
+            Connection con = DatabaseConnection.getCon();
+            Statement st = con.createStatement();
+            //Fetch Question From Database 
+            ResultSet rsl = st.executeQuery("select * from quizquestion where id > " + questionId + " AND language = '" + selectedLanguage + "' LIMIT 1");
+            while (rsl.next()) {
+                counter++;  //Check Question No Stop At 10 Question 
+                QuestionNoUpdateLabel.setText(String.valueOf(counter));  //Set Question Number
+                questionId = rsl.getInt(1); //Set Question Id From database to Question Id 
+                QuestionLabel.setText(rsl.getString(2));
+                Opt1RadioBtn.setText(rsl.getString(3));
+                Opt2RadioBtn.setText(rsl.getString(4));
+                Opt3RadioBtn.setText(rsl.getString(5));
+                Opt4RadioBtn.setText(rsl.getString(6));
+                answer = rsl.getString(7);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
+    //Answer Check Method Every Time Next Button Press
+    public void answerCheck() {
+        String studentAnswer;
+        if (Opt1RadioBtn.isSelected()) {
+            studentAnswer = Opt1RadioBtn.getText();
+        } else if (Opt2RadioBtn.isSelected()) {
+            studentAnswer = Opt2RadioBtn.getText();
+        } else if (Opt3RadioBtn.isSelected()) {
+            studentAnswer = Opt3RadioBtn.getText();
+        } else if (Opt4RadioBtn.isSelected()) {
+            studentAnswer = Opt4RadioBtn.getText();
+        } else {
+            studentAnswer = "Not Any Answer Select";
+        }
+
+        //Checking Marks From Database
+        if (studentAnswer.equals(answer)) {
+            marks = marks + 1;
+        }
+
+        //Clear All RadioButton
+        Opt1RadioBtn.setSelected(false);
+        Opt2RadioBtn.setSelected(false);
+        Opt3RadioBtn.setSelected(false);
+        Opt4RadioBtn.setSelected(false);
+
+        //lastquestion hide next button show Submit button
+        if (counter == 9) {
+            NextQuestionBtn.setVisible(false);
+            SubmitBtn.setVisible(true);
+        }
+    }
+
+
+    //Whenever User Click On Submit Button This Method Fire
+    public void submit() {
+        answerCheck();
+        try {
+            //Add Marks In Quiz Marks Table
+            Connection con = DatabaseConnection.getCon();
+            PreparedStatement pst = con.prepareStatement("insert into quizmarks (user_id,marks,language) values(" + userId + "," + marks + ",'" + selectedLanguage + "')");
+            pst.executeUpdate();
+            
+            //Show Marks When Quiz End
+            String marks1 = String.valueOf(marks);
+            JOptionPane.showMessageDialog(null, "Your Total Marks Is : " + marks1);
+            dispose();
+            new QuizHome(userId).setVisible(true);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -139,7 +145,7 @@ public class ExamPage extends javax.swing.JFrame {
         TotalQuestionLabel = new javax.swing.JLabel();
         TotalQuestionNoLabel = new javax.swing.JLabel();
         QuestionNoLabel = new javax.swing.JLabel();
-        QuestionNoUpdate = new javax.swing.JLabel();
+        QuestionNoUpdateLabel = new javax.swing.JLabel();
         MinimizeLabel = new javax.swing.JLabel();
         LabelExit = new javax.swing.JLabel();
         LogoLabel = new javax.swing.JLabel();
@@ -164,12 +170,12 @@ public class ExamPage extends javax.swing.JFrame {
 
         TotalTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         TotalTimeLabel.setForeground(new java.awt.Color(255, 255, 255));
-        TotalTimeLabel.setText("Total Time :-");
-        HeaderPanel.add(TotalTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
+        TotalTimeLabel.setText("Total Time   :-");
+        HeaderPanel.add(TotalTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 160, -1));
 
         TotalLabelTime.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         TotalLabelTime.setForeground(new java.awt.Color(255, 255, 255));
-        TotalLabelTime.setText("10 Min");
+        TotalLabelTime.setText("5 Min");
         HeaderPanel.add(TotalLabelTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 70, -1));
 
         TimeTakenLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -207,10 +213,10 @@ public class ExamPage extends javax.swing.JFrame {
         QuestionNoLabel.setText("Question No    :-");
         HeaderPanel.add(QuestionNoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 180, -1));
 
-        QuestionNoUpdate.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        QuestionNoUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        QuestionNoUpdate.setText("00");
-        HeaderPanel.add(QuestionNoUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 31, -1));
+        QuestionNoUpdateLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        QuestionNoUpdateLabel.setForeground(new java.awt.Color(255, 255, 255));
+        QuestionNoUpdateLabel.setText("00");
+        HeaderPanel.add(QuestionNoUpdateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 31, -1));
 
         MinimizeLabel.setBackground(new java.awt.Color(186, 79, 84));
         MinimizeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -385,9 +391,9 @@ public class ExamPage extends javax.swing.JFrame {
     }//GEN-LAST:event_MinimizeLabelMouseExited
 
     private void LabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseClicked
-        int a = JOptionPane.showConfirmDialog(null, "Do you really want to quit", "Select", JOptionPane.YES_NO_OPTION);
+        int a = JOptionPane.showConfirmDialog(null, "Do You Really Want To Quit");
         if (a == 0) {
-            int b = JOptionPane.showConfirmDialog(null, "Leave Us A Review", "Select", JOptionPane.YES_NO_OPTION);
+            int b = JOptionPane.showConfirmDialog(null, "Leave Us A Review");
             {
                 if (b == 0) {
                     new FeedBackForm(userId).setVisible(true);
@@ -407,7 +413,6 @@ public class ExamPage extends javax.swing.JFrame {
         ImageIcon exit2 = new ImageIcon("src/main/java/img/CloseWhiteImg.png");
         LabelExit.setIcon(exit2);
     }//GEN-LAST:event_LabelExitMouseExited
-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -430,7 +435,7 @@ public class ExamPage extends javax.swing.JFrame {
     private javax.swing.JRadioButton Opt4RadioBtn;
     private javax.swing.JLabel QuestionLabel;
     private javax.swing.JLabel QuestionNoLabel;
-    private javax.swing.JLabel QuestionNoUpdate;
+    private javax.swing.JLabel QuestionNoUpdateLabel;
     private javax.swing.JLabel QuizTitle;
     private javax.swing.JLabel SecondLabel;
     private javax.swing.JButton SubmitBtn;
@@ -441,4 +446,8 @@ public class ExamPage extends javax.swing.JFrame {
     private javax.swing.JLabel TotalTimeLabel;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    private String String(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

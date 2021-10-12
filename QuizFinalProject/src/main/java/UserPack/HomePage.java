@@ -41,10 +41,10 @@ public class HomePage extends javax.swing.JFrame {
         HomeLabel = new javax.swing.JLabel();
         AboutUsPanel = new javax.swing.JPanel();
         AboutUsLabel = new javax.swing.JLabel();
-        SignUpPanel = new javax.swing.JPanel();
+        SignUpHeaderPanel = new javax.swing.JPanel();
         sinup = new javax.swing.JLabel();
         ProjectIconTitle = new javax.swing.JLabel();
-        SignInPanel = new javax.swing.JPanel();
+        SignInHeaderPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         LogoLabel = new javax.swing.JLabel();
         ExitLabel = new javax.swing.JLabel();
@@ -55,9 +55,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        StartPanel = new javax.swing.JPanel();
+        StartBodyPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        LoginPanel = new javax.swing.JPanel();
+        LoginBodyPanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         BodyAboutUs = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -140,16 +140,16 @@ public class HomePage extends javax.swing.JFrame {
 
         HeaderPanel.add(AboutUsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, 70));
 
-        SignUpPanel.setBackground(new java.awt.Color(74, 31, 61));
-        SignUpPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        SignUpHeaderPanel.setBackground(new java.awt.Color(74, 31, 61));
+        SignUpHeaderPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SignUpPanelMouseClicked(evt);
+                SignUpHeaderPanelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SignUpPanelMouseEntered(evt);
+                SignUpHeaderPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                SignUpPanelMouseExited(evt);
+                SignUpHeaderPanelMouseExited(evt);
             }
         });
 
@@ -157,37 +157,37 @@ public class HomePage extends javax.swing.JFrame {
         sinup.setForeground(new java.awt.Color(255, 255, 255));
         sinup.setText("   Sign Up");
 
-        javax.swing.GroupLayout SignUpPanelLayout = new javax.swing.GroupLayout(SignUpPanel);
-        SignUpPanel.setLayout(SignUpPanelLayout);
-        SignUpPanelLayout.setHorizontalGroup(
-            SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout SignUpHeaderPanelLayout = new javax.swing.GroupLayout(SignUpHeaderPanel);
+        SignUpHeaderPanel.setLayout(SignUpHeaderPanelLayout);
+        SignUpHeaderPanelLayout.setHorizontalGroup(
+            SignUpHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sinup, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
-        SignUpPanelLayout.setVerticalGroup(
-            SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SignUpPanelLayout.createSequentialGroup()
+        SignUpHeaderPanelLayout.setVerticalGroup(
+            SignUpHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SignUpHeaderPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(sinup)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        HeaderPanel.add(SignUpPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, -1, 70));
+        HeaderPanel.add(SignUpHeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, -1, 70));
 
         ProjectIconTitle.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
         ProjectIconTitle.setForeground(new java.awt.Color(255, 255, 255));
         ProjectIconTitle.setText("Fun With Learn");
         HeaderPanel.add(ProjectIconTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 20, 180, 52));
 
-        SignInPanel.setBackground(new java.awt.Color(74, 31, 61));
-        SignInPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        SignInHeaderPanel.setBackground(new java.awt.Color(74, 31, 61));
+        SignInHeaderPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SignInPanelMouseClicked(evt);
+                SignInHeaderPanelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SignInPanelMouseEntered(evt);
+                SignInHeaderPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                SignInPanelMouseExited(evt);
+                SignInHeaderPanelMouseExited(evt);
             }
         });
 
@@ -195,21 +195,21 @@ public class HomePage extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("   Sign In");
 
-        javax.swing.GroupLayout SignInPanelLayout = new javax.swing.GroupLayout(SignInPanel);
-        SignInPanel.setLayout(SignInPanelLayout);
-        SignInPanelLayout.setHorizontalGroup(
-            SignInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout SignInHeaderPanelLayout = new javax.swing.GroupLayout(SignInHeaderPanel);
+        SignInHeaderPanel.setLayout(SignInHeaderPanelLayout);
+        SignInHeaderPanelLayout.setHorizontalGroup(
+            SignInHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
-        SignInPanelLayout.setVerticalGroup(
-            SignInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SignInPanelLayout.createSequentialGroup()
+        SignInHeaderPanelLayout.setVerticalGroup(
+            SignInHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SignInHeaderPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel6)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        HeaderPanel.add(SignInPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, -1, 70));
+        HeaderPanel.add(SignInHeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, -1, 70));
         HeaderPanel.add(LogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 20, 44, 52));
 
         ExitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -265,17 +265,17 @@ public class HomePage extends javax.swing.JFrame {
         jLabel10.setText("televised for entertainment purposes, often in a game show format.");
         BodyPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 270, 817, 24));
 
-        StartPanel.setBackground(new java.awt.Color(186, 79, 84));
-        StartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        StartPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        StartBodyPanel.setBackground(new java.awt.Color(186, 79, 84));
+        StartBodyPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        StartBodyPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StartPanelMouseClicked(evt);
+                StartBodyPanelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StartPanelMouseEntered(evt);
+                StartBodyPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                StartPanelMouseExited(evt);
+                StartBodyPanelMouseExited(evt);
             }
         });
 
@@ -283,33 +283,33 @@ public class HomePage extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Start Here ");
 
-        javax.swing.GroupLayout StartPanelLayout = new javax.swing.GroupLayout(StartPanel);
-        StartPanel.setLayout(StartPanelLayout);
-        StartPanelLayout.setHorizontalGroup(
-            StartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StartPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout StartBodyPanelLayout = new javax.swing.GroupLayout(StartBodyPanel);
+        StartBodyPanel.setLayout(StartBodyPanelLayout);
+        StartBodyPanelLayout.setHorizontalGroup(
+            StartBodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StartBodyPanelLayout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(28, 28, 28))
         );
-        StartPanelLayout.setVerticalGroup(
-            StartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        StartBodyPanelLayout.setVerticalGroup(
+            StartBodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        BodyPanel.add(StartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 359, -1, -1));
+        BodyPanel.add(StartBodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 359, -1, -1));
 
-        LoginPanel.setBackground(new java.awt.Color(186, 79, 84));
-        LoginPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        LoginPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        LoginBodyPanel.setBackground(new java.awt.Color(186, 79, 84));
+        LoginBodyPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        LoginBodyPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoginPanelMouseClicked(evt);
+                LoginBodyPanelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LoginPanelMouseEntered(evt);
+                LoginBodyPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                LoginPanelMouseExited(evt);
+                LoginBodyPanelMouseExited(evt);
             }
         });
 
@@ -317,21 +317,21 @@ public class HomePage extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Login");
 
-        javax.swing.GroupLayout LoginPanelLayout = new javax.swing.GroupLayout(LoginPanel);
-        LoginPanel.setLayout(LoginPanelLayout);
-        LoginPanelLayout.setHorizontalGroup(
-            LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LoginPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout LoginBodyPanelLayout = new javax.swing.GroupLayout(LoginBodyPanel);
+        LoginBodyPanel.setLayout(LoginBodyPanelLayout);
+        LoginBodyPanelLayout.setHorizontalGroup(
+            LoginBodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginBodyPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel11)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
-        LoginPanelLayout.setVerticalGroup(
-            LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        LoginBodyPanelLayout.setVerticalGroup(
+            LoginBodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        BodyPanel.add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 359, -1, -1));
+        BodyPanel.add(LoginBodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 359, -1, -1));
 
         MainBodyPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 460));
 
@@ -463,29 +463,29 @@ public class HomePage extends javax.swing.JFrame {
         BodyAboutUs.setVisible(true);
     }//GEN-LAST:event_AboutUsPanelMouseClicked
 
-    private void SignUpPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpPanelMouseClicked
+    private void SignUpHeaderPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpHeaderPanelMouseClicked
         RegistrationPage a = new RegistrationPage();
         a.setVisible(true);
         dispose();
-    }//GEN-LAST:event_SignUpPanelMouseClicked
+    }//GEN-LAST:event_SignUpHeaderPanelMouseClicked
 
-    private void SignInPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInPanelMouseClicked
+    private void SignInHeaderPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInHeaderPanelMouseClicked
         LoginPage b = new LoginPage();
         b.setVisible(true);
         dispose();
-    }//GEN-LAST:event_SignInPanelMouseClicked
+    }//GEN-LAST:event_SignInHeaderPanelMouseClicked
 
-    private void StartPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartPanelMouseClicked
+    private void StartBodyPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartBodyPanelMouseClicked
         RegistrationPage ap = new RegistrationPage();
         ap.setVisible(true);
         dispose();
-    }//GEN-LAST:event_StartPanelMouseClicked
+    }//GEN-LAST:event_StartBodyPanelMouseClicked
 
-    private void LoginPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginPanelMouseClicked
+    private void LoginBodyPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBodyPanelMouseClicked
         LoginPage b = new LoginPage();
         b.setVisible(true);
         dispose();
-    }//GEN-LAST:event_LoginPanelMouseClicked
+    }//GEN-LAST:event_LoginBodyPanelMouseClicked
 
     private void AboutUsPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutUsPanelMouseEntered
         AboutUsPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
@@ -495,37 +495,37 @@ public class HomePage extends javax.swing.JFrame {
         AboutUsPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.red));
     }//GEN-LAST:event_AboutUsPanelMouseExited
 
-    private void SignUpPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpPanelMouseEntered
-        SignUpPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
-    }//GEN-LAST:event_SignUpPanelMouseEntered
+    private void SignUpHeaderPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpHeaderPanelMouseEntered
+        SignUpHeaderPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
+    }//GEN-LAST:event_SignUpHeaderPanelMouseEntered
 
-    private void SignInPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInPanelMouseEntered
-        SignInPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
-    }//GEN-LAST:event_SignInPanelMouseEntered
+    private void SignInHeaderPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInHeaderPanelMouseEntered
+        SignInHeaderPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.red));
+    }//GEN-LAST:event_SignInHeaderPanelMouseEntered
 
-    private void SignUpPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpPanelMouseExited
-        SignUpPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.red));
-    }//GEN-LAST:event_SignUpPanelMouseExited
+    private void SignUpHeaderPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpHeaderPanelMouseExited
+        SignUpHeaderPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.red));
+    }//GEN-LAST:event_SignUpHeaderPanelMouseExited
 
-    private void SignInPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInPanelMouseExited
-        SignInPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.red));
-    }//GEN-LAST:event_SignInPanelMouseExited
+    private void SignInHeaderPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignInHeaderPanelMouseExited
+        SignInHeaderPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.red));
+    }//GEN-LAST:event_SignInHeaderPanelMouseExited
 
-    private void StartPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartPanelMouseEntered
-        StartPanel.setBackground(new java.awt.Color(74, 31, 61));
-    }//GEN-LAST:event_StartPanelMouseEntered
+    private void StartBodyPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartBodyPanelMouseEntered
+        StartBodyPanel.setBackground(new java.awt.Color(74, 31, 61));
+    }//GEN-LAST:event_StartBodyPanelMouseEntered
 
-    private void StartPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartPanelMouseExited
-        StartPanel.setBackground(new java.awt.Color(186, 79, 84));
-    }//GEN-LAST:event_StartPanelMouseExited
+    private void StartBodyPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartBodyPanelMouseExited
+        StartBodyPanel.setBackground(new java.awt.Color(186, 79, 84));
+    }//GEN-LAST:event_StartBodyPanelMouseExited
 
-    private void LoginPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginPanelMouseExited
-        LoginPanel.setBackground(new java.awt.Color(186, 79, 84));
-    }//GEN-LAST:event_LoginPanelMouseExited
+    private void LoginBodyPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBodyPanelMouseExited
+        LoginBodyPanel.setBackground(new java.awt.Color(186, 79, 84));
+    }//GEN-LAST:event_LoginBodyPanelMouseExited
 
-    private void LoginPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginPanelMouseEntered
-        LoginPanel.setBackground(new java.awt.Color(74, 31, 61));
-    }//GEN-LAST:event_LoginPanelMouseEntered
+    private void LoginBodyPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBodyPanelMouseEntered
+        LoginBodyPanel.setBackground(new java.awt.Color(74, 31, 61));
+    }//GEN-LAST:event_LoginBodyPanelMouseEntered
 
     private void ExitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseClicked
         System.exit(0);
@@ -633,14 +633,14 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel InstagramLink;
     private javax.swing.JLabel InstagramLinkMayur;
-    private javax.swing.JPanel LoginPanel;
+    private javax.swing.JPanel LoginBodyPanel;
     private javax.swing.JLabel LogoLabel;
     private javax.swing.JPanel MainBodyPanel;
     private javax.swing.JLabel MinimizeLabel;
     private javax.swing.JLabel ProjectIconTitle;
-    private javax.swing.JPanel SignInPanel;
-    private javax.swing.JPanel SignUpPanel;
-    private javax.swing.JPanel StartPanel;
+    private javax.swing.JPanel SignInHeaderPanel;
+    private javax.swing.JPanel SignUpHeaderPanel;
+    private javax.swing.JPanel StartBodyPanel;
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

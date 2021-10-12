@@ -233,10 +233,10 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
         try {
             new AdminHome().setVisible(true);
+            dispose();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UpdateDeleteQuestion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, ex);
         }
-        dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBtnActionPerformed

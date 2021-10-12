@@ -19,7 +19,7 @@ public class ForgotPass extends javax.swing.JFrame {
         initComponents();
         PassField.setEditable(false);
         OtpConfirmBtn.setEnabled(false);
-        CoPasswordField.setEditable(false);
+        ConfirmPasswordField.setEditable(false);
         LoginBtn.setEnabled(false);
         ImageIcon passeye = new ImageIcon("src/main/java/img/PasswordEyeImg.png");
         PassEye.setIcon(passeye);
@@ -43,7 +43,7 @@ public class ForgotPass extends javax.swing.JFrame {
         LoginBtn = new javax.swing.JButton();
         OtpConfirmBtn = new javax.swing.JButton();
         SendOtpBtn = new javax.swing.JButton();
-        CoPasswordField = new javax.swing.JPasswordField();
+        ConfirmPasswordField = new javax.swing.JPasswordField();
         PassField = new javax.swing.JPasswordField();
         OtpField = new javax.swing.JTextField();
         MailField = new javax.swing.JTextField();
@@ -140,16 +140,16 @@ public class ForgotPass extends javax.swing.JFrame {
         });
         BodyPanel.add(SendOtpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 100, 30));
 
-        CoPasswordField.setBackground(new java.awt.Color(102, 0, 102));
-        CoPasswordField.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        CoPasswordField.setForeground(new java.awt.Color(255, 255, 255));
-        CoPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        CoPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+        ConfirmPasswordField.setBackground(new java.awt.Color(102, 0, 102));
+        ConfirmPasswordField.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        ConfirmPasswordField.setForeground(new java.awt.Color(255, 255, 255));
+        ConfirmPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        ConfirmPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                CoPasswordFieldKeyReleased(evt);
+                ConfirmPasswordFieldKeyReleased(evt);
             }
         });
-        BodyPanel.add(CoPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 350, 30));
+        BodyPanel.add(ConfirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 350, 30));
 
         PassField.setBackground(new java.awt.Color(102, 0, 102));
         PassField.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -201,6 +201,7 @@ public class ForgotPass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SendOtpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendOtpBtnActionPerformed
+        //Check Email Address Of User When Click On Send Otp
         emailId = MailField.getText();
         try {
             Connection con = DatabaseConnection.getCon();
@@ -219,7 +220,7 @@ public class ForgotPass extends javax.swing.JFrame {
                     obj.sendEmail(message, subject, to, from);
                     OtpConfirmBtn.setEnabled(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Please enter true email id which u login earlier", "Select", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Please enter true email id which u login earlier");
                 }
             }
         } catch (HeadlessException | SQLException e) {
@@ -234,7 +235,7 @@ public class ForgotPass extends javax.swing.JFrame {
         } else {
             if (otpw.equals(a)) {
                 PassField.setEditable(true);
-                CoPasswordField.setEditable(true);
+                ConfirmPasswordField.setEditable(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please Enter True Otp", "Select", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -254,9 +255,9 @@ public class ForgotPass extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PassFieldKeyReleased
 
-    private void CoPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CoPasswordFieldKeyReleased
+    private void ConfirmPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ConfirmPasswordFieldKeyReleased
         String passW = PassField.getText();
-        String conpW = CoPasswordField.getText();
+        String conpW = ConfirmPasswordField.getText();
         if (passW.equals(conpW)) {
             ErrorShow.setText(null);
             LoginBtn.setEnabled(true);
@@ -264,15 +265,16 @@ public class ForgotPass extends javax.swing.JFrame {
             ErrorShow.setText("not match");
             LoginBtn.setEnabled(false);
         }
-    }//GEN-LAST:event_CoPasswordFieldKeyReleased
+    }//GEN-LAST:event_ConfirmPasswordFieldKeyReleased
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
+        //Update Password Through Email Id
         String passId = PassField.getText();
         try {
             Connection con = DatabaseConnection.getCon();
             Statement st = con.createStatement();
             st.executeUpdate("update register set pass = '" + passId + "' where email = '" + emailId + "'");
-            JOptionPane.showMessageDialog(null, "Successfully login ", "Select", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Successfully login ");
             new LoginPage().setVisible(true);
             dispose();
         } catch (HeadlessException | SQLException e) {
@@ -286,11 +288,11 @@ public class ForgotPass extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void PassEyeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassEyeMouseEntered
-        CoPasswordField.setEchoChar((char) 0);
+        ConfirmPasswordField.setEchoChar((char) 0);
     }//GEN-LAST:event_PassEyeMouseEntered
 
     private void PassEyeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassEyeMouseExited
-        CoPasswordField.setEchoChar('*');
+        ConfirmPasswordField.setEchoChar('*');
     }//GEN-LAST:event_PassEyeMouseExited
 
     private void PassEye1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassEye1MouseEntered
@@ -311,8 +313,8 @@ public class ForgotPass extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BodyPanel;
-    private javax.swing.JPasswordField CoPasswordField;
     private javax.swing.JLabel ConfirmPassLb;
+    private javax.swing.JPasswordField ConfirmPasswordField;
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JLabel ErrorShow;
     private javax.swing.JLabel ForgotPassTitle;

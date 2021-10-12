@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"techBlogDatabase"},{"l":"techBlogEntity"},{"l":"techBlogHelper"},{"l":"techBlogServlet"}]

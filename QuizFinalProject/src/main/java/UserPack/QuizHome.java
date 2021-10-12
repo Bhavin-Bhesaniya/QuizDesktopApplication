@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class QuizHome extends javax.swing.JFrame {
 
     static int userId;
-
+    
     public QuizHome(int userid) {
         userId = userid;
         initComponents();
@@ -396,6 +396,7 @@ public class QuizHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProfileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileBtnActionPerformed
+        //Get Text Value From Button And Send (Select Language)
         new UserProfile(userId).setVisible(true);
         dispose();
     }//GEN-LAST:event_ProfileBtnActionPerformed

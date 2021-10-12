@@ -218,6 +218,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 100));
 
+        BodyPanel.setBackground(new java.awt.Color(0, 51, 51));
         BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1080, 430));
 
