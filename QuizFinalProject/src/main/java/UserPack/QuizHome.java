@@ -442,13 +442,12 @@ public class QuizHome extends javax.swing.JFrame {
             {
                 if (b == 0) {
                     new FeedBackForm(userId).setVisible(true);
+                    dispose();
                 } else {
                     System.exit(0);
                 }
             }
-        } else {
-            System.exit(0);
-        }
+        } 
     }//GEN-LAST:event_CloseBtnActionPerformed
 
     public static void main(String args[]) {

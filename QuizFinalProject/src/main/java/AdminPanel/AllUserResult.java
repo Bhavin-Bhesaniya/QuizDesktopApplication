@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AllUserResult extends javax.swing.JFrame {
-
     public AllUserResult() {
         initComponents();
         try {
@@ -25,12 +24,10 @@ public class AllUserResult extends javax.swing.JFrame {
                 String tbData[] = {id, name, email, marks, lang, date};
                 DefaultTableModel tblmodel = (DefaultTableModel) ResultTable.getModel();
                 tblmodel.addRow(tbData);
-
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, e);
         }
-
     }
 
     @SuppressWarnings("unchecked")

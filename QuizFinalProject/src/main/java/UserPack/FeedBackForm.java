@@ -79,7 +79,6 @@ public class FeedBackForm extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {

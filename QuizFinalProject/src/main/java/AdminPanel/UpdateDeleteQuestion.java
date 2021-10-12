@@ -225,7 +225,6 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Successfully updated");
             dispose();
             new UpdateDeleteQuestion().setVisible(true);
-
         } catch (HeadlessException | SecurityException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -263,7 +262,6 @@ public class UpdateDeleteQuestion extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }//GEN-LAST:event_SearchBtnActionPerformed
 
     private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed

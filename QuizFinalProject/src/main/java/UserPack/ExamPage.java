@@ -10,15 +10,16 @@ import javax.swing.Timer;
 
 public class ExamPage extends javax.swing.JFrame {
 
-    int questionId = 0,counter = 0,min = 0, sec = 0, marks = 0;
+    int questionId = 0, counter = 0, min = 0, sec = 0, marks = 0;
     String answer;
     static String selectedLanguage;
     static int userId;
+    Timer time;
 
-    //Answer Check
+//Answer Check
     public void answerCheck() {
         String studentAnswer;
-        if  (Opt1RadioBtn.isSelected()) {
+        if (Opt1RadioBtn.isSelected()) {
             studentAnswer = Opt1RadioBtn.getText();
         } else if (Opt2RadioBtn.isSelected()) {
             studentAnswer = Opt2RadioBtn.getText();
@@ -32,7 +33,7 @@ public class ExamPage extends javax.swing.JFrame {
         if (studentAnswer.equals(answer)) {
             marks = marks + 1;
         }
-
+        
         //Clear Radio Button
         Opt1RadioBtn.setSelected(false);
         Opt2RadioBtn.setSelected(false);
@@ -54,7 +55,7 @@ public class ExamPage extends javax.swing.JFrame {
             //Fetch Question From Database 
             ResultSet rsl = st.executeQuery("select * from quizquestion where id > " + questionId + " AND language = '" + selectedLanguage + "' LIMIT 1");
             while (rsl.next()) {
-                counter++;      
+                counter++;
                 questionId = Integer.parseInt(rsl.getString(1));
                 QuestionNoUpdate.setText(String.valueOf(counter));  //Set Question Number
                 QuestionLabel.setText(rsl.getString(2));
@@ -72,7 +73,7 @@ public class ExamPage extends javax.swing.JFrame {
     public void submit() {
         answerCheck();
         try {
-            
+
             Connection con = DatabaseConnection.getCon();
             PreparedStatement pst = con.prepareStatement("insert into quizmarks (user_id,marks,language) values(" + userId + "," + marks + ",'" + selectedLanguage + "')");
             pst.executeUpdate();
@@ -84,7 +85,6 @@ public class ExamPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    Timer time;
 
     public ExamPage(String language, int uid) {
         initComponents();
@@ -94,17 +94,17 @@ public class ExamPage extends javax.swing.JFrame {
         LabelExit.setIcon(exitlogp);
         ImageIcon minip = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(minip);
-        
+
         //Execution Begin From Here
         selectedLanguage = language;            //User Selected language 
-        QuizTitle.setText(selectedLanguage);    
+        QuizTitle.setText(selectedLanguage);
         userId = uid;                            //Take UserId
         SubmitBtn.setVisible(false);
 
         question();           //Question Method Call 
-        
+
         //Timer Program
-        setLocationRelativeTo(this);
+//        setLocationRelativeTo(this);
         time = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -113,7 +113,7 @@ public class ExamPage extends javax.swing.JFrame {
                 if (sec == 60) {
                     sec = 0;
                     min++;
-                    if (min == 10) {
+                    if (min == 5) {
                         time.stop();
                         answerCheck();
                         submit();
@@ -320,7 +320,7 @@ public class ExamPage extends javax.swing.JFrame {
         BodyPanel.add(SubmitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 120, 40));
         BodyPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1130, -1));
 
-        getContentPane().add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1130, 480));
+        getContentPane().add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1130, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -388,13 +388,14 @@ public class ExamPage extends javax.swing.JFrame {
         int a = JOptionPane.showConfirmDialog(null, "Do you really want to quit", "Select", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
             int b = JOptionPane.showConfirmDialog(null, "Leave Us A Review", "Select", JOptionPane.YES_NO_OPTION);
-            {   if (b == 0) {
+            {
+                if (b == 0) {
                     new FeedBackForm(userId).setVisible(true);
                 } else {
                     System.exit(0);
                 }
             }
-    } 
+        }
     }//GEN-LAST:event_LabelExitMouseClicked
 
     private void LabelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseEntered

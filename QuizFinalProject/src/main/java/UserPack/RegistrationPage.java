@@ -49,33 +49,33 @@ public class RegistrationPage extends javax.swing.JFrame {
         RegistrationBtn.setEnabled(false);
     }
 
-    public static void sendEmail(String message, String subject, String to, String from) {
-        Properties properties = System.getProperties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "465");
-        properties.put("mail.smtp.ssl.enable", "true");
-        properties.put("mail.smtp.auth", "true");
-        Session session = Session.getDefaultInstance(properties,
-                new javax.mail.Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("bhavin.otp2021@gmail.com", "Bh@vin12Op");
-            }
-        });
-        session.setDebug(true);
-        MimeMessage m = new MimeMessage(session);
-        try {
-            m.setFrom(from);
-            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            m.setSubject(subject);
-            m.setContent(message, "text/html");
-            Transport.send(m);
-            System.out.print("Sent success.........");
+        public static void sendEmail(String message, String subject, String to, String from) {
+            Properties properties = System.getProperties();
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "465");
+            properties.put("mail.smtp.ssl.enable", "true");
+            properties.put("mail.smtp.auth", "true");
+            Session session = Session.getDefaultInstance(properties,
+                    new javax.mail.Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("bhavin.otp2021@gmail.com", "Bh@vin12Op");
+                }
+            });
+            session.setDebug(true);
+            MimeMessage m = new MimeMessage(session);
+            try {
+                m.setFrom(from);
+                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+                m.setSubject(subject);
+                m.setContent(message, "text/html");
+                Transport.send(m);
+                System.out.print("Sent success.........");
 
-        } catch (MessagingException e) {
-            System.out.println(e);
+            } catch (MessagingException e) {
+                System.out.println(e);
+            }
         }
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -439,7 +439,6 @@ public class RegistrationPage extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Plz Confirm With Otp for Login");
         new OtpConfirm(otp, to, name, password).setVisible(true);
         dispose();
-
     }//GEN-LAST:event_RegistrationBtnActionPerformed
 
     private void ExitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseClicked
@@ -501,8 +500,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_PassEyeMouseExited
 
     private void GoLoginPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoLoginPanelMouseEntered
-        GoLoginPanel.setBackground(new java.awt.Color(74, 31, 61));
-        
+        GoLoginPanel.setBackground(new java.awt.Color(74, 31, 61));        
     }//GEN-LAST:event_GoLoginPanelMouseEntered
 
     private void GoLoginPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoLoginPanelMouseExited

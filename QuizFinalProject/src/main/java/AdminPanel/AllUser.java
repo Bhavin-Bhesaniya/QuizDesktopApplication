@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AllUser extends javax.swing.JFrame {
-
     public AllUser() {
         initComponents();
         try {

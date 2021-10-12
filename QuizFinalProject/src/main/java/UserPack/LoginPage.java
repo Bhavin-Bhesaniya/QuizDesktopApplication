@@ -13,7 +13,7 @@ public class LoginPage extends javax.swing.JFrame {
         initComponents();
         ImageIcon p = new ImageIcon("src/main/java/img/ProjectLogo.png");
         LogoLabel.setIcon(p);
-        ImageIcon ab = new ImageIcon("src/main/java/img/ContactUsImg.png");
+        ImageIcon ab = new ImageIcon("src/main/java/img/email.png");
         ContactIconLabel.setIcon(ab);
         ImageIcon a = new ImageIcon("src/main/java/img/PasswordLockWhiteImg.png");
         PasswrodIconLabel.setIcon(a);

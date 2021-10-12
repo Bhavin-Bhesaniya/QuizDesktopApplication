@@ -17,8 +17,6 @@ public class AdminHome extends javax.swing.JFrame {
         ExitLabel.setIcon(ap);
         ImageIcon ao = new ImageIcon("src/main/java/img/MinimizeWhiteImg.png");
         MinimizeLabel.setIcon(ao);
-        ImageIcon a = new ImageIcon("src/main/java/img/youtube.png");
-        BodyPanelLabel.setIcon(a);
         
     }
 
@@ -43,7 +41,6 @@ public class AdminHome extends javax.swing.JFrame {
         Logout = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
-        BodyPanelLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(180, 120));
@@ -222,8 +219,6 @@ public class AdminHome extends javax.swing.JFrame {
         getContentPane().add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 100));
 
         BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        BodyPanel.add(BodyPanelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 540, 290));
-
         getContentPane().add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1080, 430));
 
         pack();
@@ -358,7 +353,6 @@ public class AdminHome extends javax.swing.JFrame {
     private javax.swing.JPanel AllResultPanel;
     private javax.swing.JPanel AllUserPanel;
     private javax.swing.JPanel BodyPanel;
-    private javax.swing.JLabel BodyPanelLabel;
     private javax.swing.JLabel ExitLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel InsertQuestionPanel;

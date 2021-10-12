@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class InsertQuestion extends javax.swing.JFrame {
-
     public InsertQuestion() {
         initComponents();
         ImageIcon ap = new ImageIcon("src/main/java/img/exit.png");
@@ -32,7 +31,6 @@ public class InsertQuestion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -252,13 +250,10 @@ public class InsertQuestion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Successfully updated");
                 dispose();
                 new InsertQuestion().setVisible(true);
-
             }
-
         } catch (HeadlessException | SecurityException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }//GEN-LAST:event_SubmitBtnActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed

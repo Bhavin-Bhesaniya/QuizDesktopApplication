@@ -12,7 +12,7 @@ UserPack\HomePage$8.class
 AdminPanel\UpdateDeleteQuestion$3.class
 UserPack\StartProject.class
 UserPack\HomePage$5.class
-UserPack\HomePage$17.class
+AdminPanel\UpdateDeleteQuestion$6.class
 AdminPanel\InsertQuestion.class
 UserPack\LoginPage$7.class
 UserPack\QuizHome.class
@@ -42,6 +42,7 @@ UserPack\LoginPage$1.class
 UserPack\StartProject$1.class
 Database\DatabaseConnection.class
 AdminPanel\InsertQuestion$4.class
+UserPack\UserProfile$7.class
 UserPack\FeedBackForm.class
 UserPack\ForgotPass$6.class
 UserPack\OtpConfirm$5.class
@@ -73,6 +74,7 @@ UserPack\OtpConfirm$3.class
 UserPack\ExamPage$5.class
 UserPack\ForgotPass.class
 UserPack\ForgotPass$1.class
+AdminPanel\AdminHome$9.class
 UserPack\FeedBackForm$2.class
 AdminPanel\AllUserResult$2.class
 AdminPanel\InsertQuestion$1.class

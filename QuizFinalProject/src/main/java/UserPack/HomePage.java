@@ -23,19 +23,15 @@ public class HomePage extends javax.swing.JFrame {
         youtubeLink.setIcon(yt);
         ImageIcon linkdinIc = new ImageIcon("src/main/java/img/linkedin.png");
         linkdinLink.setIcon(linkdinIc);
-        ImageIcon GithubIc = new ImageIcon("src/main/java/img/linkedin.png");
+        ImageIcon GithubIc = new ImageIcon("src/main/java/img/github.png");
         GithubLink.setIcon(GithubIc);
         ImageIcon instaIcM = new ImageIcon("src/main/java/img/instagram.png");
         InstagramLinkMayur.setIcon(instaIcM);
         ImageIcon ytM = new ImageIcon("src/main/java/img/youtube.png");
         youtubeLinkMayur.setIcon(ytM);
-        ImageIcon linkdinIcM = new ImageIcon("src/main/java/img/linkedin.png");
-        LinkdinlinkMayur.setIcon(linkdinIcM);
-        ImageIcon GithubIcM = new ImageIcon("src/main/java/img/linkedin.png");
-        GithubLinkMayur.setIcon(GithubIcM);
-        
+        ImageIcon GithubIcM = new ImageIcon("src/main/java/img/github.png");
+        GithubLinkMayur.setIcon(GithubIcM);        
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -74,7 +70,6 @@ public class HomePage extends javax.swing.JFrame {
         youtubeLink = new javax.swing.JLabel();
         linkdinLink = new javax.swing.JLabel();
         youtubeLinkMayur = new javax.swing.JLabel();
-        LinkdinlinkMayur = new javax.swing.JLabel();
         InstagramLinkMayur = new javax.swing.JLabel();
         FollowMayurLb = new javax.swing.JLabel();
         GithubLink = new javax.swing.JLabel();
@@ -340,7 +335,7 @@ public class HomePage extends javax.swing.JFrame {
 
         MainBodyPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 460));
 
-        BodyAboutUs.setBackground(new java.awt.Color(51, 0, 51));
+        BodyAboutUs.setBackground(new java.awt.Color(186, 79, 84));
         BodyAboutUs.setMinimumSize(new java.awt.Dimension(955, 359));
         BodyAboutUs.setName(""); // NOI18N
         BodyAboutUs.setPreferredSize(new java.awt.Dimension(975, 408));
@@ -404,19 +399,12 @@ public class HomePage extends javax.swing.JFrame {
         });
         BodyAboutUs.add(youtubeLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 30, 30));
 
-        LinkdinlinkMayur.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LinkdinlinkMayurMouseClicked(evt);
-            }
-        });
-        BodyAboutUs.add(LinkdinlinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 30, 30));
-
         InstagramLinkMayur.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 InstagramLinkMayurMouseClicked(evt);
             }
         });
-        BodyAboutUs.add(InstagramLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 30, 30));
+        BodyAboutUs.add(InstagramLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, 30, 30));
 
         FollowMayurLb.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         FollowMayurLb.setForeground(new java.awt.Color(255, 255, 255));
@@ -435,7 +423,7 @@ public class HomePage extends javax.swing.JFrame {
                 GithubLinkMayurMouseClicked(evt);
             }
         });
-        BodyAboutUs.add(GithubLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 30, 30));
+        BodyAboutUs.add(GithubLinkMayur, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, 30, 30));
 
         MainBodyPanel.add(BodyAboutUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
 
@@ -599,10 +587,6 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_youtubeLinkMayurMouseClicked
 
-    private void LinkdinlinkMayurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LinkdinlinkMayurMouseClicked
-
-    }//GEN-LAST:event_LinkdinlinkMayurMouseClicked
-
     private void InstagramLinkMayurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InstagramLinkMayurMouseClicked
         try {
             Desktop.getDesktop().browse(new URI("https://www.instagram.com/gujju_coding/"));
@@ -626,9 +610,7 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }//GEN-LAST:event_GithubLinkMayurMouseClicked
-
     public static void main(String args[]) {
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomePage().setVisible(true);
@@ -651,7 +633,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel HomePanel;
     private javax.swing.JLabel InstagramLink;
     private javax.swing.JLabel InstagramLinkMayur;
-    private javax.swing.JLabel LinkdinlinkMayur;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JLabel LogoLabel;
     private javax.swing.JPanel MainBodyPanel;

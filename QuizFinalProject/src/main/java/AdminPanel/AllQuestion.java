@@ -24,11 +24,9 @@ public class AllQuestion extends javax.swing.JFrame {
                 String opt4 = rs.getString("opt4");
                 String answer = rs.getString("answer");
                 String lang = rs.getString("language");
-
                 String tbData[] = {id, Question,opt1,opt2,opt3,opt4,answer,lang};
                 DefaultTableModel tblmodel = (DefaultTableModel) AllQuestionTable.getModel();
                 tblmodel.addRow(tbData);
-
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, e);
