@@ -124,8 +124,8 @@ public class ExamPage extends javax.swing.JFrame {
             //Show Marks When Quiz End
             String marks1 = String.valueOf(marks);
             JOptionPane.showMessageDialog(null, "Your Total Marks Is : " + marks1);
-            dispose();
             new QuizHome(userId).setVisible(true);
+            dispose();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
