@@ -59,7 +59,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("bhavin.otp2021@gmail.com", "Bh@vin12Op");
+                return new PasswordAuthentication("bhavin.otp2021@gmail.com", "Gmail_Passowrd");
             }
         });
         session.setDebug(true);
